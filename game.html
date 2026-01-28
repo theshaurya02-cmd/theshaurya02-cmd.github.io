@@ -1,115 +1,64 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Pragati's Barbie World 💖</title>
+    <title>Pragati's World</title>
     <style>
-        body {
-            background: #ffdef2; /* Barbie Pink Background */
-            font-family: 'Comic Sans MS', cursive;
-            text-align: center;
-            margin: 0;
+        body { background: #3d1c2a; color: white; text-align: center; font-family: sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 400px; margin: auto; background: #2d141e; padding: 20px; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        
+        /* Character & Dress Box */
+        #display-box { 
+            position: relative; width: 280px; height: 350px; 
+            margin: 20px auto; background: #111; border: 5px solid #ff1493; border-radius: 20px;
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
             overflow: hidden;
         }
-        #game-container {
-            background: white;
-            width: 350px;
-            height: 500px;
-            margin: 20px auto;
-            border: 10px solid #ff69b4;
-            border-radius: 30px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+        #doll { width: 180px; z-index: 1; margin-bottom: 20px; }
+        #dress-item { 
+            position: absolute; top: 120px; font-size: 80px; z-index: 2; 
+            transition: 0.3s; filter: drop-shadow(0 0 10px pink);
         }
-        .character {
-            width: 200px;
-            position: absolute;
-            bottom: 50px;
-            left: 75px;
-            transition: 0.5s;
-        }
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        button {
-            background: #ff69b4;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
+
+        /* Buttons Section */
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        button { 
+            padding: 12px; border: none; border-radius: 10px; 
+            background: #ff1493; color: white; font-weight: bold; cursor: pointer;
             box-shadow: 0 4px #c2185b;
         }
-        button:active { transform: translateY(4px); box-shadow: 0 0; }
-        .dress {
-            position: absolute;
-            width: 200px;
-            bottom: 50px;
-            left: 75px;
-            display: none;
-        }
-        #message {
-            color: #ff1493;
-            font-size: 1.5rem;
-            margin-top: 10px;
-            height: 30px;
-        }
+        button:active { transform: translateY(2px); box-shadow: 0 0; }
+        #msg-bubble { background: white; color: #ff1493; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <h1 style="color: #ff1493;">💖 प्रगति का पार्लर 💖</h1>
-    <p>प्रगति को तैयार करो और मजे करो!</p>
+    <h2 style="color:#ff1493;">💖 प्रगति का पार्लर 💖</h2>
+    
+    <div class="container">
+        <div id="msg-bubble">नमस्ते! मुझे तैयार करो ✨</div>
+        
+        <div id="display-box">
+            <div id="dress-item">✨</div>
+            <img src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png" id="doll">
+        </div>
 
-    <div id="game-container">
-        <img src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png" class="character" id="pragati">
-        <div id="dress-layer" style="font-size: 100px; position: absolute; bottom: 150px; left: 120px;">👗</div>
+        <div class="controls">
+            <button onclick="change('👗', 'ओये होये! पार्टी लुक!')">💃 Party Wear</button>
+            <button onclick="change('👸', 'शादी वाला लुक!')">👑 Shadi Look</button>
+            <button onclick="change('👚', 'एकदम कूल प्रगति!')">🕶️ Casual Look</button>
+            <button onclick="change('👺', 'हाहाहा! ये क्या है?')">😜 Funny Look</button>
+        </div>
     </div>
 
-    <div id="message"></div>
-
-    <div class="controls">
-        <button onclick="changeStyle('party', 'ओये होये! पार्टी के लिए तैयार?')">👗 Party Wear</button>
-        <button onclick="changeStyle('casual', 'अरे वाह! कूल लग रही हो प्रगति!')">👕 Casual Style</button>
-        <button onclick="changeStyle('shadi', 'शादी में जाना है क्या?')">👰 Shadi Look</button>
-        <button onclick="changeStyle('funny', 'ये क्या पहन लिया? हाहाहा!')">🤡 Funny Look</button>
-    </div>
-
-    <audio id="sound1" src="https://www.myinstants.com/media/sounds/funny-laugh.mp3"></audio>
-    <audio id="sound2" src="https://www.myinstants.com/media/sounds/anime-wow.mp3"></audio>
+    <br>
+    <a href="index.html" style="color:pink; text-decoration:none;">← Back to Party Site</a>
 
     <script>
-        function changeStyle(style, msg) {
-            const dress = document.getElementById('dress-layer');
-            const message = document.getElementById('message');
-            const pragati = document.getElementById('pragati');
-            
-            message.innerText = msg;
-
-            if(style === 'party') {
-                dress.innerText = '👗';
-                document.getElementById('sound2').play();
-                pragati.style.filter = "hue-rotate(90deg)";
-            } 
-            else if(style === 'casual') {
-                dress.innerText = '👚';
-                pragati.style.filter = "hue-rotate(180deg)";
-            }
-            else if(style === 'shadi') {
-                dress.innerText = '👸';
-                document.getElementById('sound2').play();
-                pragati.style.filter = "drop-shadow(0 0 10px gold)";
-            }
-            else if(style === 'funny') {
-                dress.innerText = '👺';
-                document.getElementById('sound1').play();
-                pragati.style.filter = "invert(1)";
-            }
+        function change(item, txt) {
+            document.getElementById('dress-item').innerText = item;
+            document.getElementById('msg-bubble').innerText = txt;
         }
     </script>
 </body>
