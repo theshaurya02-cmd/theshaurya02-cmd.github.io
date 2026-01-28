@@ -3,115 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lok Jan Shakti Party (Wazidpur JNP)</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>LJP Wazidpur | Advocate Harendra Kumar Sonkar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        :root { --main-orange: #FF8C00; --main-white: #ffffff; --main-green: #2E7D32; --main-blue: #000080; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f4f7f6; color: #333; overflow-x: hidden; }
-        
-        /* Navigation */
-        nav { background: var(--main-blue); color: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        nav .logo { font-size: 1.5rem; font-weight: bold; }
-        nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
-        nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-        nav ul li a:hover { color: var(--main-orange); }
+        :root {
+            --p-orange: #FF9933; --p-white: #ffffff; --p-green: #138808; --p-blue: #000080;
+            --glass: rgba(255, 255, 255, 0.15);
+        }
 
-        /* Hero Section */
-        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?auto=format&fit=crop&w=1350&q=80'); 
-                background-size: cover; color: white; padding: 100px 20px; text-align: center; }
-        .hero h1 { font-size: 3.5rem; margin: 10px 0; color: var(--main-orange); }
-        .hero p { font-size: 1.2rem; margin-bottom: 20px; }
-        .founder-tag { background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 50px; display: inline-block; border: 1px solid var(--main-orange); }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
-        /* Motivation Section (Rhymes) */
-        .rhymes { background: var(--main-orange); color: white; padding: 40px 20px; text-align: center; font-size: 1.4rem; font-weight: bold; line-height: 1.8; }
-        
-        /* Stats & Issues Section */
-        .issues { padding: 50px 5%; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .card { background: white; padding: 30px; border-radius: 10px; width: 300px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-bottom: 5px solid var(--main-green); }
-        .card i { font-size: 2.5rem; color: var(--main-blue); margin-bottom: 15px; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-image: url('https://www.transparenttextures.com/patterns/flowers.png'); /* Flower Pattern */
+        }
 
-        /* Footer */
-        footer { background: #1a1a1a; color: #ccc; padding: 50px 5% 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .footer-bottom { border-top: 1px solid #333; margin-top: 30px; padding-top: 20px; text-align: center; font-size: 0.8rem; }
-        
-        .contact-btn { background: var(--main-green); color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 20px; }
+        /* Animated Background Header */
+        header {
+            background: linear-gradient(45deg, var(--p-orange), #ffcc33, var(--p-green));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 100px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            color: white;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-title { font-size: 4rem; text-shadow: 4px 4px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
+
+        /* Multi-Link Navigation Dashboard */
+        .nav-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px 5%;
+            background: var(--p-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            background: var(--glass);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-link:hover { background: var(--p-orange); transform: translateY(-5px); }
+
+        /* Content Sections with Transitions */
+        section { padding: 80px 10%; opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid white;
+            margin-bottom: 40px;
+        }
+
+        /* Rhymes & Slogans Slider Feel */
+        .slogan-box {
+            background: var(--p-orange);
+            color: white;
+            padding: 30px;
+            border-radius: 0 50px 0 50px;
+            font-size: 1.5rem;
+            text-align: center;
+            box-shadow: 10px 10px 0px var(--p-blue);
+            margin: 40px 0;
+        }
+
+        /* Grid for Leaders & Philosophy */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-box {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            transition: 0.4s;
+            border-top: 5px solid var(--p-green);
+        }
+
+        .feature-box:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.2); transform: scale(1.05); }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+        }
+
+        footer { background: #111; color: white; padding: 60px 5%; }
+
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">LJP WAZIDPUR</div>
-    <ul>
-        <li><a href="#about">The Party</a></li>
-        <li><a href="#leadership">Leadership</a></li>
-        <li><a href="#manifesto">Manifesto</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+<header class="animate__animated animate__fadeIn">
+    <p style="font-size: 1.5rem; letter-spacing: 5px;">॥ वज़िदपुर की पुकार ॥</p>
+    <h1 class="hero-title">लोक जनशक्ति पार्टी</h1>
+    <h2 style="color: var(--p-blue);">एडवोकेट हरेंद्र कुमार सोनकर</h2>
+    <p>(पुत्र: डॉ. केदारनाथ सोनकर)</p>
+</header>
 
-<div class="hero">
-    <p>1-Liner: वज़िदपुर की पुकार, लोक जनशक्ति दल अबकी बार!</p>
-    <h1>लोक जनशक्ति पार्टी (वज़िदपुर JNP)</h1>
-    <div class="founder-tag">
-        <i class="fas fa-user-tie"></i> मुख्य संरक्षक: <b>ADVOCATE HARENDRA KUMAR SONKAR</b> <br>
-        <small>(Son of Dr. Kedarnath Sonkar)</small>
-    </div>
-    <br><br>
-    <a href="mailto:killer31134@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> अभी जुड़ें</a>
+<div class="nav-container">
+    <a href="#about" class="nav-link"><i class="fas fa-university"></i> ABOUT PARTY</a>
+    <a href="#philosophy" class="nav-link"><i class="fas fa-heart"></i> PHILOSOPHY</a>
+    <a href="#history" class="nav-link"><i class="fas fa-history"></i> HISTORY</a>
+    <a href="#manifesto" class="nav-link"><i class="fas fa-file-alt"></i> MANIFESTO</a>
+    <a href="#leadership" class="nav-link"><i class="fas fa-users"></i> LEADERS</a>
+    <a href="#morcha" class="nav-link"><i class="fas fa-flag"></i> MORCHAS</a>
+    <a href="#contact" class="nav-link"><i class="fas fa-phone"></i> CONTACT</a>
 </div>
 
-<div class="rhymes">
-    "जो दलितों की शान बढ़ाए, वही असली नेता कहलाए!<br>
-    भेदभाव को जड़ से मिटाना, वज़िदपुर में खुशहाली लाना।<br>
-    एडवोकेट हरेंद्र का है वादा, विकास होगा सबसे ज़्यादा!"
-</div>
+<section id="about" class="visible">
+    <div class="glass-card">
+        <h2 style="color: var(--p-blue); border-left: 10px solid var(--p-orange); padding-left: 15px;">हमारा विजन</h2>
+        <p style="font-size: 1.2rem; margin-top: 20px;">लोक जनशक्ति पार्टी वज़िदपुर JNP, समाज के हर वर्ग को न्याय दिलाने के लिए प्रतिबद्ध है। एडवोकेट हरेंद्र कुमार सोनकर के नेतृत्व में हम भेदभाव मुक्त समाज का निर्माण कर रहे हैं।</p>
+    </div>
 
-<section class="issues" id="about">
-    <div class="card">
-        <i class="fas fa-balance-scale"></i>
-        <h3>न्याय और समानता</h3>
-        <p>जातिगत भेदभाव का अंत और हर समाज को बराबरी का हक दिलाना हमारा मुख्य संविधान है।</p>
-    </div>
-    <div class="card">
-        <i class="fas fa-users"></i>
-        <h3>अल्पसंख्यक सुरक्षा</h3>
-        <p>माइनॉरिटी के अधिकारों की रक्षा और उनके लिए सुरक्षित माहौल तैयार करना हमारी सर्वोच्च प्राथमिकता।</p>
-    </div>
-    <div class="card">
-        <i class="fas fa-hand-holding-heart"></i>
-        <h3>अंत्योदय</h3>
-        <p>समाज के अंतिम व्यक्ति तक विकास की धारा पहुँचाना ही लोक जनशक्ति का संकल्प है।</p>
+    <div class="slogan-box">
+        "ऊंच-नीच का भेद मिटाएं, <br> वज़िदपुर को खुशहाल बनाएं!" <br>
+        <span style="font-size: 1rem;">— लोक जनशक्ति दल का संकल्प</span>
     </div>
 </section>
 
+<section id="leadership" class="visible">
+    <h2 style="text-align: center; margin-bottom: 40px;">हमारे मार्गदर्शक और संस्थापक</h2>
+    <div class="grid-container">
+        <div class="feature-box">
+            <h3>डॉ. श्यामा प्रसाद मुखर्जी</h3>
+            <p>एक विधान, एक निशान के प्रणेता। उनके विचार ही हमारी शक्ति हैं।</p>
+        </div>
+        <div class="feature-box">
+            <h3>पंडित दीनदयाल उपाध्याय</h3>
+            <p>एकात्म मानववाद (Integral Humanism) के जनक और अंत्योदय के समर्थक।</p>
+        </div>
+        <div class="feature-box" style="border-top-color: var(--p-blue);">
+            <h3>अटल बिहारी वाजपेयी</h3>
+            <p>सुशासन और राष्ट्रवाद की अमर आवाज।</p>
+        </div>
+    </div>
+</section>
 
+<section id="philosophy" class="visible">
+    <div class="glass-card" style="background: linear-gradient(to right, #fff, #f0fdf4);">
+        <h2 style="color: var(--p-green);"><i class="fas fa-balance-scale"></i> अल्पसंख्यक और दलित सुरक्षा</h2>
+        <p>हमारे संविधान के नियमों का पालन करते हुए, हम दलितों और अल्पसंख्यकों के अधिकारों को सुरक्षित करने के लिए ढाल बनकर खड़े हैं। जातिगत भेदभाव करने वालों के खिलाफ हमारी पार्टी कानूनी और सामाजिक लड़ाई लड़ती रहेगी।</p>
+    </div>
+</section>
+
+<a href="https://wa.me/918882375825" class="floating-btn"><i class="fab fa-whatsapp"></i></a>
 
 <footer id="contact">
-    <div class="footer-grid">
+    <div class="grid-container">
         <div>
-            <h4>संपर्क करें</h4>
-            <p><i class="fas fa-map-marker-alt"></i> BJP Central Office 6-A, Pandit Deen Dayal Upadhyaya Marg, New Delhi (Reference)</p>
-            <p><i class="fas fa-envelope"></i> killer31134@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +91 88823 75825</p>
+            <h3>Head Office</h3>
+            <p>वज़िदपुर, जौनपुर (JNP)</p>
+            <p>Email: killer31134@gmail.com</p>
+            <p>Mob: +91 88823 75825</p>
         </div>
         <div>
-            <h4>संगठन (Morcha)</h4>
-            <p>Yuva Morcha | Kisan Morcha | Mahila Morcha | S.C. Morcha | OBC Morcha</p>
-        </div>
-        <div>
-            <h4>सोशल स्ट्रीम</h4>
-            <p><i class="fab fa-facebook"></i> Facebook</p>
-            <p><i class="fab fa-twitter"></i> Twitter</p>
-            <p><i class="fab fa-instagram"></i> Instagram</p>
+            <h3>Important Links</h3>
+            <p>Kisan Morcha | Yuva Morcha | Mahila Morcha</p>
+            <p>Election Manifesto 2026 | Press Release</p>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>Copyright © 2026 लोक जनशक्ति पार्टी (वज़िदपुर JNP) | Designed for Advocate Harendra Kumar Sonkar</p>
-        <p><a href="#" style="color:#666; text-decoration:none;">Privacy Policy</a> | <a href="#" style="color:#666; text-decoration:none;">Disclaimer</a></p>
+    <div style="text-align: center; margin-top: 40px; opacity: 0.6;">
+        <p>Copyright © 2026 | Developed for Advocate Harendra Kumar Sonkar</p>
     </div>
 </footer>
+
+<script>
+    // Scroll Animation Script
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        sections.forEach(sec => {
+            const top = window.scrollY;
+            const offset = sec.offsetTop - 400;
+            if (top >= offset) {
+                sec.classList.add('visible');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
