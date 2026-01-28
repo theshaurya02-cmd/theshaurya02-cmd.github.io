@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Wazidpur Runner Game</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; background: #222; color: white; }
+        canvas { background: #fff; display: block; margin: 20px auto; border: 5px solid #FF9933; border-radius: 10px; }
+        .info { font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <h1>LJP Runner Game 🏃‍♂️</h1>
+    <p class="info">Spacebar ya Screen touch karo Jump karne ke liye!</p>
+    <canvas id="gameCanvas" width="600" height="200"></canvas>
+    <h2 id="score">Score: 0</h2>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const scoreElement = document.getElementById("score");
+
+        let score = 0;
+        let gameActive = true;
+
+        // Player (The Square)
+        const player = {
+            x: 50, y: 150, w: 30, h: 30,
+            dy: 0, jumpForce: 12, gravity: 0.6, grounded: false
+        };
+
+        // Obstacle (The Enemy)
+        const obstacle = {
+            x: 600, y: 160, w: 20, h: 40, speed: 6
+        };
+
+        function drawPlayer() {
+            ctx.fillStyle = "#000080"; // Blue Color
+            ctx.fillRect(player.x, player.y, player.w, player.h);
+        }
+
+        function drawObstacle() {
+            ctx.fillStyle = "#FF0000"; // Red Color
+            ctx.fillRect(obstacle.x, obstacle.y, obstacle.w, obstacle.h);
+        }
+
+        function update() {
+            if (!gameActive) return;
+
+            // Gravity Logic
+            player.dy += player.gravity;
+            player.y += player.dy;
+
+            // Floor Collision
+            if (player.y > 170) {
+                player.y = 170;
+                player.dy = 0;
+                player.grounded = true;
+            }
+
+            // Move Obstacle
+            obstacle.x -= obstacle.speed;
+            if (obstacle.x < -20) {
+                obstacle.x = 600;
+                score++;
+                scoreElement.innerHTML = "Score: " + score;
+                obstacle.speed += 0.2; // Game gets harder
+            }
+
+            // Hit Detection (Collision)
+            if (player.x < obstacle.x + obstacle.w &&
+                player.x + player.w > obstacle.x &&
+                player.y < obstacle.y + obstacle.h &&
+                player.y + player.h > obstacle.y) {
+                gameActive = false;
+                alert("Game Over! Tera Score: " + score);
+                location.reload(); // Restart
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            drawObstacle();
+            requestAnimationFrame(update);
+        }
+
+        // Jump Control
+        window.addEventListener("keydown", (e) => {
+            if (e.code === "Space" && player.grounded) {
+                player.dy = -player.jumpForce;
+                player.grounded = false;
+            }
+        });
+
+        update();
+    </script>
+</body>
+</html>
