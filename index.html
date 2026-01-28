@@ -3,55 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lok Shakti Dal | लोक शक्ति दल</title>
+    <title>Lok Jan Shakti Party (Wazidpur JNP)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #FF9933; --secondary: #138808; --dark: #000080; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-        .navbar { background: white; padding: 15px; text-align: center; border-bottom: 4px solid var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?auto=format&fit=crop&w=1000&q=80'); 
+        :root { --main-orange: #FF8C00; --main-white: #ffffff; --main-green: #2E7D32; --main-blue: #000080; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f4f7f6; color: #333; overflow-x: hidden; }
+        
+        /* Navigation */
+        nav { background: var(--main-blue); color: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        nav .logo { font-size: 1.5rem; font-weight: bold; }
+        nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+        nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--main-orange); }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?auto=format&fit=crop&w=1350&q=80'); 
                 background-size: cover; color: white; padding: 100px 20px; text-align: center; }
-        .hero h1 { font-size: 3rem; margin: 0; color: var(--primary); text-shadow: 2px 2px 4px #000; }
-        .hero p { font-size: 1.5rem; margin-top: 10px; }
-        .vision-section { padding: 50px 20px; text-align: center; max-width: 900px; margin: auto; }
-        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-top: 5px solid var(--secondary); }
-        .btn { background: var(--dark); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; margin-top: 20px; font-weight: bold; }
-        footer { background: #222; color: white; padding: 20px; text-align: center; font-size: 0.9rem; }
+        .hero h1 { font-size: 3.5rem; margin: 10px 0; color: var(--main-orange); }
+        .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+        .founder-tag { background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 50px; display: inline-block; border: 1px solid var(--main-orange); }
+
+        /* Motivation Section (Rhymes) */
+        .rhymes { background: var(--main-orange); color: white; padding: 40px 20px; text-align: center; font-size: 1.4rem; font-weight: bold; line-height: 1.8; }
+        
+        /* Stats & Issues Section */
+        .issues { padding: 50px 5%; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .card { background: white; padding: 30px; border-radius: 10px; width: 300px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-bottom: 5px solid var(--main-green); }
+        .card i { font-size: 2.5rem; color: var(--main-blue); margin-bottom: 15px; }
+
+        /* Footer */
+        footer { background: #1a1a1a; color: #ccc; padding: 50px 5% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer-bottom { border-top: 1px solid #333; margin-top: 30px; padding-top: 20px; text-align: center; font-size: 0.8rem; }
+        
+        .contact-btn { background: var(--main-green); color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <h2 style="margin:0; color: var(--dark);">LOK SHAKTI DAL</h2>
-    </div>
+<nav>
+    <div class="logo">LJP WAZIDPUR</div>
+    <ul>
+        <li><a href="#about">The Party</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#manifesto">Manifesto</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <div class="hero">
-        <h1>लोक शक्ति दल</h1>
-        <p>"जन-जन की आवाज़, नए भारत का आगाज़"</p>
-        <a href="https://wa.me/YOUR_NUMBER" class="btn">WhatsApp पर जुड़ें</a>
+<div class="hero">
+    <p>1-Liner: वज़िदपुर की पुकार, लोक जनशक्ति दल अबकी बार!</p>
+    <h1>लोक जनशक्ति पार्टी (वज़िदपुर JNP)</h1>
+    <div class="founder-tag">
+        <i class="fas fa-user-tie"></i> मुख्य संरक्षक: <b>ADVOCATE HARENDRA KUMAR SONKAR</b> <br>
+        <small>(Son of Dr. Kedarnath Sonkar)</small>
     </div>
+    <br><br>
+    <a href="mailto:killer31134@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> अभी जुड़ें</a>
+</div>
 
-    <div class="vision-section">
-        <h2 style="color: var(--secondary);">हमारा संकल्प</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>शिक्षा</h3>
-                <p>हर बच्चे के लिए मुफ्त और विश्वस्तरीय शिक्षा का वादा।</p>
-            </div>
-            <div class="card">
-                <h3>रोजगार</h3>
-                <p>युवाओं के लिए नए अवसर और स्किल डेवलपमेंट सेंटर।</p>
-            </div>
-            <div class="card">
-                <h3>किसान</h3>
-                <p>खेती को आधुनिक बनाना और फसल का सही दाम दिलाना।</p>
-            </div>
+<div class="rhymes">
+    "जो दलितों की शान बढ़ाए, वही असली नेता कहलाए!<br>
+    भेदभाव को जड़ से मिटाना, वज़िदपुर में खुशहाली लाना।<br>
+    एडवोकेट हरेंद्र का है वादा, विकास होगा सबसे ज़्यादा!"
+</div>
+
+<section class="issues" id="about">
+    <div class="card">
+        <i class="fas fa-balance-scale"></i>
+        <h3>न्याय और समानता</h3>
+        <p>जातिगत भेदभाव का अंत और हर समाज को बराबरी का हक दिलाना हमारा मुख्य संविधान है।</p>
+    </div>
+    <div class="card">
+        <i class="fas fa-users"></i>
+        <h3>अल्पसंख्यक सुरक्षा</h3>
+        <p>माइनॉरिटी के अधिकारों की रक्षा और उनके लिए सुरक्षित माहौल तैयार करना हमारी सर्वोच्च प्राथमिकता।</p>
+    </div>
+    <div class="card">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>अंत्योदय</h3>
+        <p>समाज के अंतिम व्यक्ति तक विकास की धारा पहुँचाना ही लोक जनशक्ति का संकल्प है।</p>
+    </div>
+</section>
+
+
+
+<footer id="contact">
+    <div class="footer-grid">
+        <div>
+            <h4>संपर्क करें</h4>
+            <p><i class="fas fa-map-marker-alt"></i> BJP Central Office 6-A, Pandit Deen Dayal Upadhyaya Marg, New Delhi (Reference)</p>
+            <p><i class="fas fa-envelope"></i> killer31134@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 88823 75825</p>
+        </div>
+        <div>
+            <h4>संगठन (Morcha)</h4>
+            <p>Yuva Morcha | Kisan Morcha | Mahila Morcha | S.C. Morcha | OBC Morcha</p>
+        </div>
+        <div>
+            <h4>सोशल स्ट्रीम</h4>
+            <p><i class="fab fa-facebook"></i> Facebook</p>
+            <p><i class="fab fa-twitter"></i> Twitter</p>
+            <p><i class="fab fa-instagram"></i> Instagram</p>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2026 लोक शक्ति दल | Designed by Shaurya</p>
-    </footer>
+    <div class="footer-bottom">
+        <p>Copyright © 2026 लोक जनशक्ति पार्टी (वज़िदपुर JNP) | Designed for Advocate Harendra Kumar Sonkar</p>
+        <p><a href="#" style="color:#666; text-decoration:none;">Privacy Policy</a> | <a href="#" style="color:#666; text-decoration:none;">Disclaimer</a></p>
+    </div>
+</footer>
 
 </body>
 </html>
